@@ -2,15 +2,14 @@ module.exports = {
   devServer: {
     overlay: false,
   },
-  // css: {
-  //   loaderOptions: {
-  //     sass: {
-  //       prependData: `
-  //         @import "@/assets/css/_colors.scss";
-  //         @import "@/assets/css/_field.scss";
-  //         @import "@/assets/css/_common.scss";
-  //       `,
-  //     },
-  //   },
-  // },
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `
+          @import '@/assets/css/font.scss';
+          @import '@/assets/css/color.scss';
+        `,
+      },
+    },
+  },
 };

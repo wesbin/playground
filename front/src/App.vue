@@ -3,7 +3,13 @@
 
 <template>
   <header class="header">
-    HEADER
+    <div class="logo-container">
+      GUNU
+    </div>
+    <div class="menu-container">
+      HEADER
+    </div>
+    <div class="empty-container"></div>
   </header>
   <div class="content">
     <main class="main">

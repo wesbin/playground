@@ -8,12 +8,23 @@ body {
 }
 
 .header{
-  display: flex;
+  display: grid;
   gap: 10px;
   height: 60px;
   background-color: $HEADER-COLOR;
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
   align-items: center;
+  color: $WHITE-FONT;
+
+  .logo-container {
+    padding-left: 20px;
+    justify-self: start;
+  }
+
+  .menu-container {
+
+  }
 }
 
 .content {

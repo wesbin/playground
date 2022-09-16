@@ -1,16 +1,12 @@
 <script setup>
-
+import Logo from '@/components/header/Logo';
+import Menu from '@/components/header/Menu/Menu';
 </script>
 
 <template>
   <header class="header">
-    <div class="logo-container">
-      <div class="logo">GUNU</div>
-    </div>
-    <div class="menu-container">
-      <div class="menu">만화</div>
-      <div class="menu">음악</div>
-    </div>
+    <Logo></Logo>
+    <Menu></Menu>
     <div class="empty-container"></div>
   </header>
 </template>
@@ -25,29 +21,5 @@
   justify-items: center;
   align-items: center;
   color: $WHITE-FONT;
-
-  .logo-container {
-    padding-left: 20px;
-    justify-self: start;
-  }
-
-  .menu-container {
-    display: flex;
-    height: 100%;
-    gap: 10px;
-
-    .menu {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100px;
-      height: 100%;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $SELECTED-MENU;
-      }
-    }
-  }
 }
 </style>

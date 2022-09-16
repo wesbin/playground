@@ -1,13 +1,32 @@
-<template>
+<script setup>
+import {useRouter} from 'vue-router';
 
-</template>
-
-<script>
-export default {
-  name: 'Logo'
-};
+let router = useRouter();
+const clickLogo = () => {
+  router.push({
+    name: 'Main'
+  })
+}
 </script>
 
-<style scoped>
+<template>
+  <div class="logo-container">
+    <div
+      class="logo"
+      @click="clickLogo"
+    >
+      GUNU
+    </div>
+  </div>
+</template>
 
+<style lang="scss" scoped>
+.logo-container {
+  padding-left: 20px;
+  justify-self: start;
+
+  .logo {
+    cursor: pointer;
+  }
+}
 </style>

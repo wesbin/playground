@@ -1,17 +1,21 @@
 <script setup>
+import Board from '@/components/content/board/board';
 
+const recentViewBoard = {
+
+}
 </script>
 
 <template>
   <main class="main">
-    <section class="article-section">
-      <article class="article">검색영역</article>
+    <section class="board-section">
+      <Board :tabs="recentViewBoard"></Board>
     </section>
-    <section class="article-section">
+    <section class="board-section">
       <article class="article">랜덤</article>
       <article class="article">등등</article>
     </section>
-    <section class="article-section">
+    <section class="board-section">
       <article class="article">원하는거</article>
       <article class="article">게시판</article>
       <article class="article">형식으로</article>
@@ -23,7 +27,7 @@
 .main {
   width: 1150px;
 
-  .article-section {
+  .board-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 

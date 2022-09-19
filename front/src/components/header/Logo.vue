@@ -27,6 +27,7 @@ const clickLogo = () => {
 
   .logo {
     cursor: pointer;
+    user-select: none;
   }
 }
 </style>

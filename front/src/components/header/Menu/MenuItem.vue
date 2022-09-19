@@ -23,10 +23,14 @@ const clickMenu = (routerName) => {
 <template>
   <div
     class="menu-item"
-    :class="{ selected: route.name === routerName }"
     @click="clickMenu(routerName)"
   >
-    <slot></slot>
+    <div
+      class="menu-name"
+      :class="{ selected: route.name === routerName }"
+    >
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -43,19 +47,24 @@ const clickMenu = (routerName) => {
     background-color: $SELECTED-MENU;
   }
 
-  &.selected {
-    position: relative;
+  .menu-name {
+    user-select: none;
 
-    &:after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 5px;
-      background-color: #ffffff;
-      position: absolute;
-      left: 0;
-      bottom: 0;
+    &.selected {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 150%;
+        height: 5px;
+        background-color: #ffffff;
+        position: absolute;
+        left: -25%;
+        bottom: -10px;
+      }
     }
   }
+
 }
 </style>

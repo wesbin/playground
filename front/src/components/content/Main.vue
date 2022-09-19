@@ -1,9 +1,14 @@
 <script setup>
 import Board from '@/components/content/board/board';
 
-const recentViewBoard = {
-
-}
+const recentViewBoard = [
+  {
+    name: '만화'
+  },
+  {
+    name: '음악'
+  }
+]
 </script>
 
 <template>

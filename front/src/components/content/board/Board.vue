@@ -4,12 +4,10 @@ import Tab from '@/components/content/board/Tab';
 import {ref} from 'vue';
 
 const props = defineProps({
+  // tabs = { name: String, }
   tabs: {
     required: true,
     type: Array,
-    validator(value) {
-      return value.findIndex((tab) => !Object.keys(tab).includes('name')) < 0
-    }
   }
 })
 
@@ -34,9 +32,11 @@ const clickTab = (index) => {
       </Tab>
     </div>
     <div class="post-section">
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
+      <Post
+        v-for="(post, index) in tabs[selectedTabIndex].posts"
+        :key="index"
+        :post="post"
+      ></Post>
     </div>
   </div>
 </template>
@@ -55,7 +55,10 @@ const clickTab = (index) => {
   }
 
   .post-section {
+    display: flex;
+    padding-top: 10px;
     flex: 1 0;
+    gap: 10px;
   }
 }
 </style>

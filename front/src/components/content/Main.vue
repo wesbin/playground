@@ -3,10 +3,74 @@ import Board from '@/components/content/board/Board';
 
 const recentViewBoard = [
   {
-    name: '만화'
+    name: '만화',
+    posts: [
+      {
+        title: 'A'
+      },
+      {
+        title: 'B'
+      },
+      {
+        title: 'C'
+      },
+      {
+        title: 'D'
+      },
+      {
+        title: 'E'
+      },
+      {
+        title: 'F'
+      },
+      {
+        title: 'G'
+      },
+      {
+        title: 'H'
+      },
+      {
+        title: 'I'
+      },
+      {
+        title: 'J'
+      },
+    ],
   },
   {
-    name: '음악'
+    name: '음악',
+    posts: [
+      {
+        title: '1'
+      },
+      {
+        title: '2'
+      },
+      {
+        title: '3'
+      },
+      {
+        title: '4'
+      },
+      {
+        title: '5'
+      },
+      {
+        title: '6'
+      },
+      {
+        title: '7'
+      },
+      {
+        title: '8'
+      },
+      {
+        title: '9'
+      },
+      {
+        title: '0'
+      },
+    ]
   },
 ]
 </script>

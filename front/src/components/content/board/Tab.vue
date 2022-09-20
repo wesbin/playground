@@ -1,15 +1,30 @@
 <script setup>
-import {ref} from 'vue';
+import {defineProps, reactive, ref} from 'vue';
 
-const selected = ref(false)
-const clickTab = () => selected.value = !selected.value
+const props = defineProps({
+  index: {
+    required: true,
+    type: Number
+  },
+  selected: {
+    required: true,
+    type: Boolean
+  }
+})
+
+const emits = defineEmits(['clickTab']);
+
+const rainbowColor = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+const selectedTabStyle = reactive({
+  'border-bottom': `2px solid ${rainbowColor[props.index % 7]}`
+})
 </script>
 
 <template>
   <div
     class="tab"
-    :class="{ selected: selected }"
-    @click="clickTab"
+    :style="[selected ? selectedTabStyle: null]"
+    @click="emits('clickTab', index)"
   >
     <slot></slot>
   </div>
@@ -21,9 +36,6 @@ const clickTab = () => selected.value = !selected.value
   margin-bottom: -1px;
   cursor: pointer;
   user-select: none;
-
-  &.selected {
-    border-bottom: 2px solid red;
-  }
+  font-size: 13px;
 }
 </style>

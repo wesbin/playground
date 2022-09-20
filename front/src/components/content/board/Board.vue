@@ -1,6 +1,7 @@
 <script setup>
 import Post from '@/components/content/board/Post';
 import Tab from '@/components/content/board/Tab';
+import {ref} from 'vue';
 
 const props = defineProps({
   tabs: {
@@ -10,7 +11,13 @@ const props = defineProps({
       return value.findIndex((tab) => !Object.keys(tab).includes('name')) < 0
     }
   }
-});
+})
+
+// 선택된 Tab Index
+const selectedTabIndex = ref(0)
+const clickTab = (index) => {
+  selectedTabIndex.value = index
+}
 </script>
 
 <template>
@@ -19,6 +26,9 @@ const props = defineProps({
       <Tab
         v-for="(tab, index) in tabs"
         :key="index"
+        :index="index"
+        :selected="index === selectedTabIndex"
+        @clickTab="clickTab"
       >
         {{ tab.name }}
       </Tab>
@@ -40,7 +50,7 @@ const props = defineProps({
   .tab-section {
     display: flex;
     align-content: center;
-    flex: 0 0 25px;
+    flex: 0 0 20px;
     border-bottom: 1px solid $HIGH-GREY;
   }
 

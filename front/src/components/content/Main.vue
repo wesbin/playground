@@ -7,7 +7,7 @@ const recentViewBoard = [
   },
   {
     name: '음악'
-  }
+  },
 ]
 </script>
 

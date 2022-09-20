@@ -1,5 +1,5 @@
 <script setup>
-import Board from '@/components/content/board/board';
+import Board from '@/components/content/board/Board';
 
 const recentViewBoard = [
   {

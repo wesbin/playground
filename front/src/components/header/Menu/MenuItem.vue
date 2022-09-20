@@ -15,9 +15,6 @@ const clickMenu = (routerName) => {
     name: routerName
   })
 }
-
-// div 추가
-
 </script>
 
 <template>

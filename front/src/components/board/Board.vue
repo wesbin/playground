@@ -1,6 +1,8 @@
+<!-- todo ThumbnailPost 10개 이상인 경우 처리 -->
+
 <script setup>
-import Post from '@/components/content/board/Post';
-import Tab from '@/components/content/board/Tab';
+import ThumbnailPost from '@/components/post/ThumbnailPost';
+import Tab from '@/components/board/Tab';
 import {ref} from 'vue';
 
 const props = defineProps({
@@ -32,11 +34,11 @@ const clickTab = (index) => {
       </Tab>
     </div>
     <div class="post-section">
-      <Post
+      <ThumbnailPost
         v-for="(post, index) in tabs[selectedTabIndex].posts"
         :key="index"
         :post="post"
-      ></Post>
+      ></ThumbnailPost>
     </div>
   </div>
 </template>
@@ -57,6 +59,7 @@ const clickTab = (index) => {
   .post-section {
     display: flex;
     padding-top: 10px;
+    flex-wrap: wrap;
     flex: 1 0;
     gap: 10px;
   }

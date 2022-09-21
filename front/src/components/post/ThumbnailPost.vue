@@ -21,9 +21,10 @@ const props = defineProps({
   display: flex;
   position: relative;
   flex-direction: column;
-  width: 100px;
+  flex: 0 0 100px;
   height: 100px;
   background-color: #c1c1c1;
+  cursor: pointer;
 
   .post-title {
     position: absolute;
@@ -32,6 +33,7 @@ const props = defineProps({
     color: $WHITE-FONT;
     background-color: black;
     opacity: 30%;
+    user-select: none;
   }
 }
 </style>

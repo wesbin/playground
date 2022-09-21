@@ -4,17 +4,17 @@ const routes = [
   {
     path: '/',
     name: 'Main',
-    component: () => import('@/components/content/Main')
+    component: () => import('@/components/main/Main')
   },
   {
     path: '/Comics',
     name: 'Comics',
-    component: () => import('@/components/content/Comics')
+    component: () => import('@/components/main/Comics')
   },
   {
     path: '/Music',
     name: 'Music',
-    component: () => import('@/components/content/Music')
+    component: () => import('@/components/main/Music')
   }
 ]
 

@@ -1,5 +1,7 @@
+<!-- todo Board 한줄과 두줄 ThumbnailPost 크기 처리 -->
+
 <script setup>
-import Board from '@/components/content/board/Board';
+import Board from '@/components/board/Board';
 
 const recentViewBoard = [
   {
@@ -81,13 +83,8 @@ const recentViewBoard = [
       <Board :tabs="recentViewBoard"></Board>
     </section>
     <section class="board-section">
-      <article class="article">랜덤</article>
-      <article class="article">등등</article>
-    </section>
-    <section class="board-section">
-      <article class="article">원하는거</article>
-      <article class="article">게시판</article>
-      <article class="article">형식으로</article>
+      <Board :tabs="recentViewBoard"></Board>
+      <Board :tabs="recentViewBoard"></Board>
     </section>
   </main>
 </template>
@@ -99,6 +96,7 @@ const recentViewBoard = [
   .board-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 30px;
 
     .article {
       height: 300px;

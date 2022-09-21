@@ -78,6 +78,7 @@ const recentViewBoard = [
 <template>
   <main class="main">
     <section class="board-section">
+      <!-- todo relatedMenu? -->
       <Board :tabs="recentViewBoard"></Board>
     </section>
     <section class="board-section">

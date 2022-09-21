@@ -7,19 +7,34 @@ const routes = [
     component: () => import('@/components/main/Main'),
   },
   {
-    path: '/Comics',
+    path: '/comics',
     name: 'Comics',
     component: () => import('@/components/main/Comics'),
   },
   {
-    path: '/Comics/:title',
-    name: 'ComicPost',
-    component: () => import('@/components/post/ComicPost'),
+    path: '/comics/:title',
+    name: 'ComicIndex',
+    component: () => import('@/components/post/comic/ComicIndex'),
   },
   {
-    path: '/Music',
+    path: '/comics/:title/content',
+    name: 'ComicContent',
+    component: () => import('@/components/post/comic/ComicContent'),
+  },
+  {
+    path: '/comics/:title/detail',
+    name: 'ComicPostDetail',
+    component: () => import('@/components/post/PostDetail')
+  },
+  {
+    path: '/music',
     name: 'Music',
     component: () => import('@/components/main/Music'),
+  },
+  {
+    path: '/music/:title/detail',
+    name: 'MusicPostDetail',
+    component: () => import('@/components/post/PostDetail')
   },
   {
     path: '/PostDetail',

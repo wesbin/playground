@@ -16,6 +16,7 @@ const clickThumbnail = () => {
 </script>
 
 <template>
+  <!-- todo 만화랑 음악, 하나의 ThumbnailPost 로 표현이 가능한가?  -->
   <div
     class="post"
     @click="clickThumbnail"

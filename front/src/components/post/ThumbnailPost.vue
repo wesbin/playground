@@ -1,14 +1,25 @@
 <script setup>
+import {useRouter} from 'vue-router';
+
 const props = defineProps({
   post: {
     required: true,
     type: Object,
   }
 })
+
+const router = useRouter()
+// todo path 를 변수로서 동작하게끔 만들어야 한다.
+const clickThumbnail = () => {
+  router.push(`/Comics/${props.post.title}`)
+}
 </script>
 
 <template>
-  <div class="post">
+  <div
+    class="post"
+    @click="clickThumbnail"
+  >
     Image
     <div class="post-title">
       {{ post.title }}

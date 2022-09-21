@@ -1,5 +1,3 @@
-<!-- todo Board 한줄과 두줄 ThumbnailPost 크기 처리 -->
-
 <script setup>
 import Board from '@/components/board/Board';
 
@@ -83,6 +81,7 @@ const recentViewBoard = [
       <Board :tabs="recentViewBoard"></Board>
     </section>
     <section class="board-section">
+      <!-- todo Board 한줄과 두줄 ThumbnailPost 크기 처리 -->
       <Board :tabs="recentViewBoard"></Board>
       <Board :tabs="recentViewBoard"></Board>
     </section>

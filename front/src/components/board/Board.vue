@@ -1,5 +1,3 @@
-<!-- todo ThumbnailPost 10개 이상인 경우 처리 -->
-
 <script setup>
 import ThumbnailPost from '@/components/post/ThumbnailPost';
 import Tab from '@/components/board/Tab';
@@ -34,6 +32,7 @@ const clickTab = (index) => {
       </Tab>
     </div>
     <div class="post-section">
+      <!-- todo ThumbnailPost 10개 이상인 경우 처리 -->
       <ThumbnailPost
         v-for="(post, index) in tabs[selectedTabIndex].posts"
         :key="index"

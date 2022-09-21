@@ -17,6 +17,7 @@ const clickThumbnail = () => {
 
 <template>
   <!-- todo 만화랑 음악, 하나의 ThumbnailPost 로 표현이 가능한가?  -->
+  <!-- todo 만화의 경우 특정 편을 보여줄수도 있지 않나? => 뭔가 크게 바뀌어야 될 수도 -->
   <div
     class="post"
     @click="clickThumbnail"

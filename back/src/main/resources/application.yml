@@ -4,3 +4,5 @@ spring:
     url: jdbc:oracle:thin:@forwork_high?TNS_ADMIN=C:/.repo/Wallet_forWORK
     username: ADMIN
     password: emptyCASTLE13
+server:
+  port: 8081

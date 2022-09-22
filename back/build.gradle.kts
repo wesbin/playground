@@ -23,7 +23,10 @@ repositories {
 }
 
 dependencies {
-    implementation("com.oracle.database.jdbc:ojdbc8-production:21.6.0.0.1")
+    implementation("com.oracle.database.jdbc:ojdbc8-production:21.6.0.0.1") {
+        exclude(group = "com.oracle.database.ha", module = "simplefan")
+        exclude(group = "com.oracle.database.ha", module = "ons")
+    }
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -31,7 +34,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+
+    // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // kotest
+    testImplementation("io.kotest:kotest-runner-junit5:5.4.2")
+    testImplementation("io.kotest:kotest-assertions-core:5.4.2")
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2")
 }
 
 tasks.withType<KotlinCompile> {

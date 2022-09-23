@@ -1,28 +1,31 @@
 package com.holy.back.controller
 
-import com.holy.back.entity.ComicsEntity
 import com.holy.back.repository.ComicsRepo
 import com.holy.back.service.ComicsService
-import io.kotest.core.spec.style.FunSpec
+import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.extensions.spring.SpringExtension
 import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.stereotype.Repository
-import org.springframework.stereotype.Service
-import org.springframework.test.context.ContextConfiguration
 
 // https://techblog.woowahan.com/5825/
 
 @SpringBootTest
-@ContextConfiguration(classes = [ComicsService::class])
-class ComicsControllerTests (comicsService: ComicsService): FunSpec() {
+class ComicsControllerTests (): DescribeSpec({
 
-    override fun extensions() = listOf(SpringExtension)
+    val comicsRepo = mockk<ComicsRepo>()
+    val comicsService = ComicsService(comicsRepo)
 
-    init {
-        test("TEST") {
-            comicsService.selectComics().size shouldBe 0
+    describe("Kotest") {
+        context("DescribeSpec Test") {
+            it("selectComics has no data") {
+                every { comicsRepo.findAll() } returns emptyList()
+                comicsService.selectComics().size shouldBe 0
+            }
         }
     }
+
+}) {
+    override fun extensions() = listOf(SpringExtension)
 }

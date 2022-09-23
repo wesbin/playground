@@ -1,5 +1,16 @@
 <script setup>
 import Board from '@/components/board/Board';
+import axios from 'axios';
+
+axios.get('http://localhost:8081/comics')
+    .then(({data}) => {
+      console.log('COMICS', data);
+    })
+
+axios.get('http://localhost:8081/musics')
+    .then(({data}) => {
+      console.log('MUSICS', data);
+    })
 
 const recentViewBoard = [
   {

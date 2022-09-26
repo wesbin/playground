@@ -1,101 +1,41 @@
 <script setup>
 import Board from '@/components/board/Board';
 import axios from 'axios';
+import {onBeforeMount, ref} from 'vue';
 
-axios.get('http://localhost:8081/comics')
-    .then(({data}) => {
-      console.log('COMICS', data);
-    })
-
-axios.get('http://localhost:8081/musics')
-    .then(({data}) => {
-      console.log('MUSICS', data);
-    })
-
-const recentViewBoard = [
+const recentViewBoard = ref([
   {
     name: '만화',
-    posts: [
-      {
-        title: 'A'
-      },
-      {
-        title: 'B'
-      },
-      {
-        title: 'C'
-      },
-      {
-        title: 'D'
-      },
-      {
-        title: 'E'
-      },
-      {
-        title: 'F'
-      },
-      {
-        title: 'G'
-      },
-      {
-        title: 'H'
-      },
-      {
-        title: 'I'
-      },
-      {
-        title: 'J'
-      },
-    ],
+    posts: [],
   },
   {
     name: '음악',
-    posts: [
-      {
-        title: '1'
-      },
-      {
-        title: '2'
-      },
-      {
-        title: '3'
-      },
-      {
-        title: '4'
-      },
-      {
-        title: '5'
-      },
-      {
-        title: '6'
-      },
-      {
-        title: '7'
-      },
-      {
-        title: '8'
-      },
-      {
-        title: '9'
-      },
-      {
-        title: '0'
-      },
-    ]
+    posts: [],
   },
-]
+])
+
+onBeforeMount(() => {
+  // 최근 만화
+  axios.get('http://localhost:8081/comics')
+      .then(({ data }) => recentViewBoard.value[0].posts = data)
+  // 최근 음악
+  axios.get('http://localhost:8081/musics')
+      .then(({ data }) => recentViewBoard.value[1].posts = data)
+})
+
 </script>
 
 <template>
   <main class="main">
     <section class="board-section">
       <!-- todo relatedMenu? -->
+      <!-- todo 여기에서는 본게 몇 화인지 보여야 됨 만화의 경우 근데 또 음악은 그게 없음 => Factory Pattern 따위로 분기처리 해줘야 할듯 -->
       <Board :tabs="recentViewBoard"></Board>
     </section>
     <section class="board-section">
       <!-- todo Board 한줄과 두줄 ThumbnailPost 크기 처리 -->
-      <Board :tabs="recentViewBoard"></Board>
-      <Board :tabs="recentViewBoard"></Board>
+<!--      <Board :tabs="recentViewBoard"></Board>-->
+<!--      <Board :tabs="recentViewBoard"></Board>-->
     </section>
   </main>
 </template>

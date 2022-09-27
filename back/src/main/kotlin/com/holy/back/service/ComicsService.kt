@@ -1,6 +1,8 @@
 package com.holy.back.service
 
-import com.holy.back.entity.ComicsEntity
+import com.holy.back.entity.comics.ComicsEntity
+import com.holy.back.entity.comics.mapping.ComicsIdAndTitleOnly
+import com.holy.back.entity.comics.mapping.ComicsRecentView
 import com.holy.back.repository.ComicsRepo
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
@@ -16,7 +18,7 @@ class ComicsService(private val comicsRepo: ComicsRepo) {
         return comicsRepo.findById(id).orElse(null)
     }
 
-    fun selectRecentView(): List<ComicsEntity> {
+    fun selectRecentView(): List<ComicsRecentView> {
         return comicsRepo.findAllByRecentViewDateIsNotNullOrderByRecentViewDateDesc()
     }
 }

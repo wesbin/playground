@@ -22,9 +22,9 @@ const routes = [
     component: () => import('@/components/post/comic/ComicContent'),
   },
   {
-    path: '/comics/:title/detail',
-    name: 'ComicPostDetail',
-    component: () => import('@/components/post/PostDetail')
+    path: '/comics/:comicId/view/:episode',
+    name: 'ComicView',
+    component: () => import('@/components/post/comic/ComicView')
   },
   {
     path: '/music',
@@ -32,14 +32,10 @@ const routes = [
     component: () => import('@/components/main/Music'),
   },
   {
-    path: '/music/:title/detail',
-    name: 'MusicPostDetail',
-    component: () => import('@/components/post/PostDetail')
-  },
-  {
-    path: '/PostDetail',
-    name: 'PostDetail',
-    component: () => import('@/components/post/PostDetail'),
+    path: '/music/:musicId/info',
+    name: 'MusicInfo',
+    component: () => import('@/components/post/music/MusicInfo'),
+    props: true,
   },
 ]
 

@@ -2,21 +2,30 @@
 import Board from '@/components/board/Board';
 import axios from 'axios';
 import {onBeforeMount, reactive} from 'vue';
+import {useRouter} from 'vue-router';
 
+const router = useRouter();
 const recentViewComics = reactive({
   name: '만화',
   posts: [],
-  onPostClicked: (post) => {
-    console.log(`만화: ${post}`);
-  }
+  onPostClicked: (post) => router.push({
+    name: 'ComicView',
+    params: {
+      comicId: post.comicId,
+      episode: post.recentViewEpisode
+    }
+  })
 })
 
 const recentViewMusics = reactive({
   name: '음악',
   posts: [],
-  onPostClicked: (post) => {
-    console.log(`음악: ${post}`);
-  }
+  onPostClicked: (post) => router.push({
+    name: 'MusicInfo',
+    params: {
+      musicId: post.musicId,
+    }
+  })
 })
 
 onBeforeMount(() => {

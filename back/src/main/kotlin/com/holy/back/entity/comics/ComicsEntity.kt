@@ -1,9 +1,8 @@
-package com.holy.back.entity
+package com.holy.back.entity.comics
 
 import java.math.BigDecimal
 import lombok.Getter
 import lombok.Setter
-import java.sql.Date
 import java.time.LocalDate
 import javax.persistence.*
 

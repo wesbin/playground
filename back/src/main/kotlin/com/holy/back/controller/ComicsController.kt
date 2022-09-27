@@ -1,6 +1,8 @@
 package com.holy.back.controller
 
-import com.holy.back.entity.ComicsEntity
+import com.holy.back.entity.comics.ComicsEntity
+import com.holy.back.entity.comics.mapping.ComicsIdAndTitleOnly
+import com.holy.back.entity.comics.mapping.ComicsRecentView
 import com.holy.back.service.ComicsService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -25,7 +27,7 @@ class ComicsController(private val comicsService: ComicsService) {
     }
 
     @GetMapping("/recent/view")
-    fun selectRecentView(): ResponseEntity<List<ComicsEntity>> {
+    fun selectRecentView(): ResponseEntity<List<ComicsRecentView>> {
         return ResponseEntity(comicsService.selectRecentView(), HttpStatus.OK)
     }
 }

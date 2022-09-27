@@ -1,6 +1,7 @@
 package com.holy.back.controller
 
-import com.holy.back.entity.MusicsEntity
+import com.holy.back.entity.musics.MusicsEntity
+import com.holy.back.entity.musics.mapping.MusicsIdAndTitleOnly
 import com.holy.back.service.MusicsService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -25,7 +26,7 @@ class MusicsController(private val musicsService: MusicsService) {
     }
 
     @GetMapping("/recent/view")
-    fun selectRecentView(): ResponseEntity<List<MusicsEntity?>> {
+    fun selectRecentView(): ResponseEntity<List<MusicsIdAndTitleOnly>> {
         return ResponseEntity(musicsService.selectRecentView(), HttpStatus.OK)
     }
 }

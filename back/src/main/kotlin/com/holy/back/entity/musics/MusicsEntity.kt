@@ -1,4 +1,4 @@
-package com.holy.back.entity
+package com.holy.back.entity.musics
 
 import java.math.BigDecimal
 import lombok.Getter

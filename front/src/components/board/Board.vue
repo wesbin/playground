@@ -4,7 +4,12 @@ import Tab from '@/components/board/Tab';
 import {ref} from 'vue';
 
 const props = defineProps({
-  // tabs = { name: String, posts: Array<post>, onPostClicked: Function(post) }
+  /**
+   * tab in tabs
+   * @property {string} name                  -required
+   * @property {Array<post>} posts            -required
+   * @property {Function<post>} onPostClicked -required
+   */
   tabs: {
     required: true,
     type: Array,

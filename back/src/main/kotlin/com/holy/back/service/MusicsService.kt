@@ -15,4 +15,8 @@ class MusicsService(private val musicsRepo: MusicsRepo) {
     fun selectMusicsById(id: BigDecimal): MusicsEntity? {
         return musicsRepo.findById(id).orElse(null)
     }
+
+    fun selectRecentView(): List<MusicsEntity?> {
+        return musicsRepo.findAllByRecentViewDateIsNotNullOrderByRecentViewDateDesc()
+    }
 }

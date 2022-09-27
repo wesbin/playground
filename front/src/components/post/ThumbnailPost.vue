@@ -5,13 +5,18 @@ const props = defineProps({
   post: {
     required: true,
     type: Object,
+  },
+  onPostClicked: {
+    required: true,
+    type: Function
   }
 })
 
 const router = useRouter()
 // todo path 를 변수로서 동작하게끔 만들어야 한다.
 const clickThumbnail = () => {
-  router.push(`/Comics/${props.post.title}`)
+  props.onPostClicked(props.post)
+  // router.push(`/Comics/${props.post.title}`)
 }
 </script>
 

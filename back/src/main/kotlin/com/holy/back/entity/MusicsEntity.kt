@@ -3,6 +3,7 @@ package com.holy.back.entity
 import java.math.BigDecimal
 import lombok.Getter
 import lombok.Setter
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -27,4 +28,6 @@ open class MusicsEntity {
     @Column(name = "LYRICS", nullable = true)
     open var lyrics: String? = null
 
+    @Column(name = "RECENT_VIEW_DATE", nullable = true)
+    open var recentViewDate: LocalDate? = null
 } 

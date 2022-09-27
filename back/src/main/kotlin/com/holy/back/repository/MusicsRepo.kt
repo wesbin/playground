@@ -8,4 +8,5 @@ import java.math.BigDecimal
 @Repository
 interface MusicsRepo: JpaRepository<MusicsEntity, BigDecimal> {
 
+    fun findAllByRecentViewDateIsNotNullOrderByRecentViewDateDesc(): List<MusicsEntity>
 }

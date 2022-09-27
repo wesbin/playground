@@ -23,4 +23,9 @@ class MusicsController(private val musicsService: MusicsService) {
     fun selectMusicsById(@PathVariable id: BigDecimal): ResponseEntity<MusicsEntity?> {
         return ResponseEntity(musicsService.selectMusicsById(id), HttpStatus.OK)
     }
+
+    @GetMapping("/recent/view")
+    fun selectRecentView(): ResponseEntity<List<MusicsEntity?>> {
+        return ResponseEntity(musicsService.selectRecentView(), HttpStatus.OK)
+    }
 }

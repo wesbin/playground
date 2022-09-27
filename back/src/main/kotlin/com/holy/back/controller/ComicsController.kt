@@ -23,4 +23,9 @@ class ComicsController(private val comicsService: ComicsService) {
     fun selectComicsById(@PathVariable id: BigDecimal): ResponseEntity<ComicsEntity?> {
         return ResponseEntity(comicsService.selectComicsById(id), HttpStatus.OK)
     }
+
+    @GetMapping("/recent/view")
+    fun selectRecentView(): ResponseEntity<List<ComicsEntity>> {
+        return ResponseEntity(comicsService.selectRecentView(), HttpStatus.OK)
+    }
 }

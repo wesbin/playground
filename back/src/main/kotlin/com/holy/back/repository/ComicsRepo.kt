@@ -8,4 +8,5 @@ import java.math.BigDecimal
 @Repository
 interface ComicsRepo: JpaRepository<ComicsEntity, BigDecimal> {
 
+    fun findAllByRecentViewDateIsNotNullOrderByRecentViewDateDesc(): List<ComicsEntity>
 }

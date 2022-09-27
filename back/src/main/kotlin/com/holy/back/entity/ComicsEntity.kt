@@ -3,6 +3,8 @@ package com.holy.back.entity
 import java.math.BigDecimal
 import lombok.Getter
 import lombok.Setter
+import java.sql.Date
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -27,4 +29,9 @@ open class ComicsEntity {
     @Column(name = "REVIEW", nullable = true)
     open var review: String? = null
 
+    @Column(name = "RECENT_VIEW_EPISODE", nullable = true)
+    open var recentViewEpisode: BigDecimal? = null
+
+    @Column(name = "RECENT_VIEW_DATE", nullable = true)
+    open var recentViewDate: LocalDate? = null
 } 

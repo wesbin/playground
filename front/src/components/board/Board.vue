@@ -4,7 +4,7 @@ import Tab from '@/components/board/Tab';
 import {ref} from 'vue';
 
 const props = defineProps({
-  // tabs = { name: String, }
+  // tabs = { name: String, posts: Array<post>, onPostClicked: Function(post) }
   tabs: {
     required: true,
     type: Array,
@@ -37,6 +37,7 @@ const clickTab = (index) => {
         v-for="(post, index) in tabs[selectedTabIndex].posts"
         :key="index"
         :post="post"
+        :onPostClicked="tabs[selectedTabIndex].onPostClicked"
       ></ThumbnailPost>
     </div>
   </div>

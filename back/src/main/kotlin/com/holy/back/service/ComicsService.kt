@@ -15,4 +15,8 @@ class ComicsService(private val comicsRepo: ComicsRepo) {
     fun selectComicsById(id: BigDecimal): ComicsEntity? {
         return comicsRepo.findById(id).orElse(null)
     }
+
+    fun selectRecentView(): List<ComicsEntity> {
+        return comicsRepo.findAllByRecentViewDateIsNotNullOrderByRecentViewDateDesc()
+    }
 }

@@ -1,5 +1,6 @@
 package com.holy.back.entity.comics
 
+import com.holy.back.entity.ComicsEpisodesEntity
 import java.math.BigDecimal
 import lombok.Getter
 import lombok.Setter
@@ -33,4 +34,7 @@ open class ComicsEntity {
 
     @Column(name = "RECENT_VIEW_DATE", nullable = true)
     open var recentViewDate: LocalDate? = null
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comic")
+    open val comicsEpisodes: List<ComicsEpisodesEntity> = arrayListOf()
 } 

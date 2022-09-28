@@ -1,7 +1,6 @@
 package com.holy.back.controller
 
 import com.holy.back.entity.comics.ComicsEntity
-import com.holy.back.entity.comics.mapping.ComicsIdAndTitleOnly
 import com.holy.back.entity.comics.mapping.ComicsRecentView
 import com.holy.back.service.ComicsService
 import org.springframework.http.HttpStatus

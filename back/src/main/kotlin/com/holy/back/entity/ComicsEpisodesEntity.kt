@@ -23,6 +23,6 @@ open class ComicsEpisodesEntity {
     open var content: String? = null
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn(name = "COMIC_ID")
+    @JoinColumn
     open var comic: ComicsEntity? = null
 } 

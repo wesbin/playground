@@ -11,3 +11,6 @@ spring:
         format_sql: true
 server:
   port: 8081
+logging:
+  level:
+    org.hibernate.type: trace

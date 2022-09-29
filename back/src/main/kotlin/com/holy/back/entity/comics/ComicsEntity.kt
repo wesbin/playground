@@ -1,6 +1,6 @@
 package com.holy.back.entity.comics
 
-import com.holy.back.entity.ComicsEpisodesEntity
+import com.holy.back.entity.episodes.ComicsEpisodesEntity
 import java.math.BigDecimal
 import lombok.Getter
 import lombok.Setter

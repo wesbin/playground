@@ -1,6 +1,6 @@
 package com.holy.back.entity.comics
 
-import com.holy.back.entity.episodes.ComicsEpisodesEntity
+import com.holy.back.entity.author.AuthorEntity
 import java.math.BigDecimal
 import lombok.Getter
 import lombok.Setter
@@ -35,6 +35,14 @@ open class ComicsEntity {
     @Column(name = "RECENT_VIEW_DATE", nullable = true)
     open var recentViewDate: LocalDate? = null
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comic")
-    open val comicsEpisodes: List<ComicsEpisodesEntity> = arrayListOf()
-} 
+//    @Column(name = "AUTHOR_ID", nullable = true)
+//    open var authorId: BigDecimal? = null
+
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comic")
+//    open val comicsEpisodes: List<ComicsEpisodesEntity> = arrayListOf()
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "AUTHOR_ID")
+    open val author: AuthorEntity? = null
+
+}

@@ -1,5 +1,6 @@
 package com.holy.back.controller
 
+import com.holy.back.entity.comics.ComicsData
 import com.holy.back.entity.comics.ComicsEntity
 import com.holy.back.entity.comics.mapping.ComicsRecentView
 import com.holy.back.entity.episodes.ComicsEpisodesEntity
@@ -17,7 +18,7 @@ import java.math.BigDecimal
 class ComicsController(private val comicsService: ComicsService) {
 
     @GetMapping("")
-    fun selectComics(): ResponseEntity<List<ComicsEntity>> {
+    fun selectComics(): ResponseEntity<List<ComicsData>> {
         return ResponseEntity(comicsService.selectComics(), HttpStatus.OK)
     }
 

@@ -1,13 +1,17 @@
 package com.holy.back.service
 
+import com.holy.back.entity.comics.ComicsData
 import com.holy.back.entity.comics.ComicsEntity
 import com.holy.back.entity.comics.mapping.ComicsIdAndTitleOnly
 import com.holy.back.entity.comics.mapping.ComicsRecentView
 import com.holy.back.entity.episodes.ComicsEpisodesEntity
 import com.holy.back.repository.ComicsEpisodesRepo
 import com.holy.back.repository.ComicsRepo
+import org.modelmapper.ModelMapper
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
+import java.util.stream.Collector
+import java.util.stream.Collectors
 
 @Service
 class ComicsService(
@@ -15,8 +19,12 @@ class ComicsService(
     private val comicsEpisodesRepo: ComicsEpisodesRepo,
 ) {
 
-    fun selectComics(): List<ComicsEntity> {
-        return comicsRepo.findAll()
+    fun selectComics(): List<ComicsData> {
+        val modelMapper: ModelMapper = ModelMapper()
+        val comicsEntities = comicsRepo.findAll()
+         return comicsEntities.stream()
+            .map { modelMapper.map(it, ComicsData::class.java) }
+            .collect(Collectors.toList())
     }
 
     fun selectComicsById(id: BigDecimal): ComicsEntity? {

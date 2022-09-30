@@ -16,18 +16,18 @@ class ComicsService(
     private val comicsEpisodesRepo: ComicsEpisodesRepo,
 ) {
 
-    fun selectComics(): List<ComicsEntity> {
+    fun selectComics(): List<ComicsData> {
         val comicsEntities = comicsRepo.findAll()
-        return comicsEntities
-//        return comicsEntities.stream()
-//            .map { ComicsData(
-//                it.comicId,
-//                it.title,
-//                it.review,
-//                it.recentViewEpisode,
-//                it.recentViewDate,
-//            ) }
-//            .collect(Collectors.toList())
+        return comicsEntities.stream()
+            .map { ComicsData(
+                it.comicId,
+                it.title,
+                it.review,
+                it.recentViewEpisode,
+                it.recentViewDate,
+                it.authorId,
+            ) }
+            .collect(Collectors.toList())
     }
 
     fun selectComicsById(id: BigDecimal): ComicsEntity? {

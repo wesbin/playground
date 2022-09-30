@@ -1,9 +1,6 @@
 package com.holy.back.entity.episodes
 
-import com.holy.back.entity.comics.ComicsEntity
 import java.math.BigDecimal
-import lombok.Getter
-import lombok.Setter
 import javax.persistence.*
 
 @Entity
@@ -22,7 +19,9 @@ open class ComicsEpisodesEntity (
 //    @JoinColumn(name = "COMIC_ID")
 //    open var comic: ComicsEntity? = null,
 
+) {
+
     @Id
     @Column(name = "COMIC_ID")
-    open var comicId: BigDecimal? = null,
-)
+    open var comicId: BigDecimal? = null
+}

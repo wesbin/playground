@@ -18,24 +18,19 @@ import javax.persistence.*
 open class ComicsEntity (
 
     @Column(name = "TITLE", nullable = false)
-    open var title: String? = null,
+    open var title: String?,
 
     @Column(name = "REVIEW", nullable = true)
-    open var review: String? = null,
+    open var review: String?,
 
     @Column(name = "RECENT_VIEW_EPISODE", nullable = true)
-    open var recentViewEpisode: BigDecimal? = null,
+    open var recentViewEpisode: BigDecimal?,
 
     @Column(name = "RECENT_VIEW_DATE", nullable = true)
-    open var recentViewDate: LocalDate? = null,
+    open var recentViewDate: LocalDate?,
 
-    @Id
-    @Column(name = "COMIC_ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMICS_ID_GENERATOR")
-    open var comicId: BigDecimal?
-
-//    @Column(name = "AUTHOR_ID", nullable = true)
-//    open var authorId: BigDecimal? = null
+    @Column(name = "AUTHOR_ID", nullable = true)
+    open var authorId: BigDecimal?,
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comic")
 //    open val comicsEpisodes: List<ComicsEpisodesEntity> = arrayListOf()
@@ -43,4 +38,10 @@ open class ComicsEntity (
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "AUTHOR_ID")
 //    open val author: AuthorEntity? = null,
-)
+) {
+
+    @Id
+    @Column(name = "COMIC_ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMICS_ID_GENERATOR")
+    open val comicId: BigDecimal? = null
+}

@@ -24,8 +24,10 @@ open class MusicsEntity (
     @Column(name = "RECENT_VIEW_DATE", nullable = true)
     open var recentViewDate: LocalDate? = null,
 
+) {
+
     @Id
     @Column(name = "MUSIC_ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MUSICS_ID_GENERATOR")
-    open var musicId: BigDecimal? = null,
-)
+    open var musicId: BigDecimal? = null
+}

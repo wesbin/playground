@@ -1,7 +1,5 @@
 package com.holy.back.entity.comics
 
-import com.holy.back.entity.author.AuthorData
-//import com.holy.back.entity.author.fromEntity
 import java.math.BigDecimal
 import java.time.LocalDate
 
@@ -11,7 +9,7 @@ data class ComicsData(
     var review: String?,
     var recentViewEpisode: BigDecimal?,
     var recentViewDate: LocalDate?,
-//    var authorId: BigDecimal?,
+    var authorId: BigDecimal?,
 //    var author: AuthorData?
 ) {
 //    fun toEntity(): ComicsEntity = ComicsEntity(

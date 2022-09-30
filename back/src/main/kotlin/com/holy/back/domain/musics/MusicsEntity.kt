@@ -11,7 +11,7 @@ import javax.persistence.*
     sequenceName = "SEQ_MUSICS_NO",
     initialValue = 1, allocationSize = 1
 )
-open class MusicsEntity (
+class MusicsEntity (
 
     @Column(name = "TITLE", nullable = false)
     var title: String? = null,

@@ -1,5 +1,6 @@
 package com.holy.back.domain.comics
 
+import com.holy.back.domain.author.AuthorEntity
 import java.math.BigDecimal
 import java.time.LocalDate
 import javax.persistence.*
@@ -11,7 +12,7 @@ import javax.persistence.*
     sequenceName = "SEQ_COMICS_NO",
     initialValue = 1, allocationSize = 1
 )
-open class ComicsEntity(
+class ComicsEntity(
 
     @Column(name = "TITLE", nullable = false)
     var title: String?,
@@ -31,9 +32,10 @@ open class ComicsEntity(
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comic")
 //    val comicsEpisodes: List<ComicsEpisodesEntity> = arrayListOf()
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "AUTHOR_ID")
-//    val author: AuthorEntity? = null,
+    @ManyToOne(fetch = FetchType.LAZY)
+    // todo insertable = false, updatable = false 가 정확히 어떤 역할을? 다른 방법으로는?
+    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "AUTHOR_ID", insertable = false, updatable = false)
+    val author: AuthorEntity? = null,
 ) {
 
     @Id

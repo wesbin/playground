@@ -6,14 +6,13 @@ import java.math.BigDecimal
 data class AuthorDto(
     var authorId: BigDecimal?,
     var name: String?,
-    var works: List<ComicsDto>,
-)
+    var works: List<ComicsDto> = arrayListOf(),
+) {
 
-//fun AuthorData.fromEntity(authorEntity: AuthorEntity): AuthorData {
-//    return authorEntity.run {
-//        AuthorData(
-//            authorId,
-//            name,
-//        )
-//    }
-//}
+    companion object {
+        fun fromEntity(entity: AuthorEntity): AuthorDto =
+            entity.run {
+                AuthorDto(authorId, name)
+            }
+    }
+}

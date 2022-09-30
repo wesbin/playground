@@ -8,13 +8,13 @@ import javax.persistence.*
 open class AuthorEntity (
 
     @Column(name = "NAME", nullable = false)
-    open var name: String? = null,
+    var name: String? = null,
 
     @Id
     @Column(name = "AUTHOR_ID")
-    open var authorId: BigDecimal? = null,
+    var authorId: BigDecimal? = null,
 
 //    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
-//    open val works: List<ComicsEntity> = arrayListOf()
+//    val works: List<ComicsEntity> = arrayListOf()
 
 )

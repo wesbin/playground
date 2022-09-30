@@ -11,33 +11,33 @@ import javax.persistence.*
     sequenceName = "SEQ_COMICS_NO",
     initialValue = 1, allocationSize = 1
 )
-open class ComicsEntity (
+open class ComicsEntity(
 
     @Column(name = "TITLE", nullable = false)
-    open var title: String?,
+    var title: String?,
 
     @Column(name = "REVIEW", nullable = true)
-    open var review: String?,
+    var review: String?,
 
     @Column(name = "RECENT_VIEW_EPISODE", nullable = true)
-    open var recentViewEpisode: BigDecimal?,
+    var recentViewEpisode: BigDecimal?,
 
     @Column(name = "RECENT_VIEW_DATE", nullable = true)
-    open var recentViewDate: LocalDate?,
+    var recentViewDate: LocalDate?,
 
     @Column(name = "AUTHOR_ID", nullable = true)
-    open var authorId: BigDecimal?,
+    var authorId: BigDecimal?,
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comic")
-//    open val comicsEpisodes: List<ComicsEpisodesEntity> = arrayListOf()
+//    val comicsEpisodes: List<ComicsEpisodesEntity> = arrayListOf()
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "AUTHOR_ID")
-//    open val author: AuthorEntity? = null,
+//    val author: AuthorEntity? = null,
 ) {
 
     @Id
     @Column(name = "COMIC_ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMICS_ID_GENERATOR")
-    open val comicId: BigDecimal? = null
+    val comicId: BigDecimal? = null
 }

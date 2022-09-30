@@ -1,4 +1,4 @@
-package com.holy.back.domain.episodes.entity
+package com.holy.back.domain.episodes
 
 import java.math.BigDecimal
 import javax.persistence.*
@@ -10,18 +10,18 @@ open class ComicsEpisodesEntity (
 
     @Id
     @Column(name = "EPISODE")
-    open var episode: BigDecimal? = null,
+    var episode: BigDecimal? = null,
 
     @Column(name = "CONTENT", nullable = true)
-    open var content: String? = null,
+    var content: String? = null,
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "COMIC_ID")
-//    open var comic: ComicsEntity? = null,
+//    var comic: ComicsEntity? = null,
 
 ) {
 
     @Id
     @Column(name = "COMIC_ID")
-    open var comicId: BigDecimal? = null
+    var comicId: BigDecimal? = null
 }

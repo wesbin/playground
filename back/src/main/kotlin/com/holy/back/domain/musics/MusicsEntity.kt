@@ -14,18 +14,18 @@ import javax.persistence.*
 open class MusicsEntity (
 
     @Column(name = "TITLE", nullable = false)
-    open var title: String? = null,
+    var title: String? = null,
 
     @Column(name = "LYRICS", nullable = true)
-    open var lyrics: String? = null,
+    var lyrics: String? = null,
 
     @Column(name = "RECENT_VIEW_DATE", nullable = true)
-    open var recentViewDate: LocalDate? = null,
+    var recentViewDate: LocalDate? = null,
 
 ) {
 
     @Id
     @Column(name = "MUSIC_ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MUSICS_ID_GENERATOR")
-    open var musicId: BigDecimal? = null
+    var musicId: BigDecimal? = null
 }

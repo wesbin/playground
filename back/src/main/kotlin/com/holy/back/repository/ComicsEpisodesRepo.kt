@@ -1,7 +1,7 @@
 package com.holy.back.repository
 
-import com.holy.back.domain.episodes.entity.ComicsEpisodesEntity
-import com.holy.back.domain.episodes.entity.ComicsEpisodesKey
+import com.holy.back.domain.episodes.ComicsEpisodesEntity
+import com.holy.back.domain.episodes.ComicsEpisodesKey
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 import java.math.BigDecimal

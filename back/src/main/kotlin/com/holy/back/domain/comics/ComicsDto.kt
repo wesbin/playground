@@ -12,29 +12,13 @@ data class ComicsDto(
     var authorId: BigDecimal?,
 //    var author: AuthorData?
 ) {
-//    fun toEntity(): ComicsEntity = ComicsEntity(
-//        comicId,
-//        title,
-//        review,
-//        recentViewEpisode,
-//        recentViewDate,
-//        null
-//    )
-}
 
-//fun ComicsData.fromEntity(comicsEntity: ComicsEntity): ComicsData {
-//    return comicsEntity.run {
-//        ComicsData(
-//            comicId,
-//            title,
-//            review,
-//            recentViewEpisode,
-//            recentViewDate,
-//            AuthorData(
-//                this.author?.authorId,
-//                this.author?.name,
-//                arrayListOf()
-//            )
-//        )
-//    }
-//}
+    fun toEntity(): ComicsEntity = ComicsEntity(title, review, recentViewEpisode, recentViewDate, authorId)
+
+    companion object {
+        fun fromEntity(entity: ComicsEntity): ComicsDto =
+            entity.run {
+                ComicsDto(comicId, title, review, recentViewEpisode, recentViewDate, authorId)
+            }
+    }
+}

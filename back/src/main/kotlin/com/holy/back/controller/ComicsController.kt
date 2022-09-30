@@ -3,7 +3,7 @@ package com.holy.back.controller
 import com.holy.back.domain.comics.ComicsDto
 import com.holy.back.domain.comics.ComicsEntity
 import com.holy.back.domain.comics.mapping.ComicsRecentView
-import com.holy.back.domain.episodes.entity.ComicsEpisodesEntity
+import com.holy.back.domain.episodes.ComicsEpisodesEntity
 import com.holy.back.service.ComicsService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

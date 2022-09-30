@@ -1,4 +1,4 @@
-package com.holy.back.entity.musics.mapping
+package com.holy.back.domain.musics.mapping
 
 import java.math.BigDecimal
 

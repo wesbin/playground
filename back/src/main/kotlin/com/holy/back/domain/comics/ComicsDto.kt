@@ -1,9 +1,9 @@
-package com.holy.back.entity.comics
+package com.holy.back.domain.comics
 
 import java.math.BigDecimal
 import java.time.LocalDate
 
-data class ComicsData(
+data class ComicsDto(
     var comicId: BigDecimal?,
     var title: String?,
     var review: String?,

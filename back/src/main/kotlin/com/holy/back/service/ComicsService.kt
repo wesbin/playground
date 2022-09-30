@@ -1,9 +1,9 @@
 package com.holy.back.service
 
-import com.holy.back.entity.comics.ComicsData
-import com.holy.back.entity.comics.ComicsEntity
-import com.holy.back.entity.comics.mapping.ComicsRecentView
-import com.holy.back.entity.episodes.ComicsEpisodesEntity
+import com.holy.back.domain.comics.ComicsDto
+import com.holy.back.domain.comics.ComicsEntity
+import com.holy.back.domain.comics.mapping.ComicsRecentView
+import com.holy.back.domain.episodes.entity.ComicsEpisodesEntity
 import com.holy.back.repository.ComicsEpisodesRepo
 import com.holy.back.repository.ComicsRepo
 import org.springframework.stereotype.Service
@@ -16,10 +16,10 @@ class ComicsService(
     private val comicsEpisodesRepo: ComicsEpisodesRepo,
 ) {
 
-    fun selectComics(): List<ComicsData> {
+    fun selectComics(): List<ComicsDto> {
         val comicsEntities = comicsRepo.findAll()
         return comicsEntities.stream()
-            .map { ComicsData(
+            .map { ComicsDto(
                 it.comicId,
                 it.title,
                 it.review,

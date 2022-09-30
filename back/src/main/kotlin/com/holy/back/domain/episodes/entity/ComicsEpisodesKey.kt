@@ -1,4 +1,4 @@
-package com.holy.back.entity.episodes
+package com.holy.back.domain.episodes.entity
 
 import java.io.Serializable
 import java.math.BigDecimal

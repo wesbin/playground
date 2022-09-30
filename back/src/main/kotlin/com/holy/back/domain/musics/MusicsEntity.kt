@@ -1,8 +1,6 @@
-package com.holy.back.entity.musics
+package com.holy.back.domain.musics
 
 import java.math.BigDecimal
-import lombok.Getter
-import lombok.Setter
 import java.time.LocalDate
 import javax.persistence.*
 

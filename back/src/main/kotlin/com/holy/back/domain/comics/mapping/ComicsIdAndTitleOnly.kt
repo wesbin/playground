@@ -1,4 +1,4 @@
-package com.holy.back.entity.comics.mapping
+package com.holy.back.domain.comics.mapping
 
 import java.math.BigDecimal
 

@@ -1,4 +1,4 @@
-package com.holy.back.entity.episodes
+package com.holy.back.domain.episodes.entity
 
 import java.math.BigDecimal
 import javax.persistence.*

@@ -1,10 +1,6 @@
-package com.holy.back.entity.comics
+package com.holy.back.domain.comics
 
-import com.holy.back.entity.author.AuthorEntity
-import lombok.AllArgsConstructor
 import java.math.BigDecimal
-import lombok.Getter
-import lombok.Setter
 import java.time.LocalDate
 import javax.persistence.*
 

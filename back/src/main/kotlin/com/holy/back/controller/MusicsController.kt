@@ -1,7 +1,7 @@
 package com.holy.back.controller
 
-import com.holy.back.entity.musics.MusicsEntity
-import com.holy.back.entity.musics.mapping.MusicsIdAndTitleOnly
+import com.holy.back.domain.musics.MusicsEntity
+import com.holy.back.domain.musics.mapping.MusicsIdAndTitleOnly
 import com.holy.back.service.MusicsService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

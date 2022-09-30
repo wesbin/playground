@@ -1,10 +1,6 @@
-package com.holy.back.entity.author
+package com.holy.back.domain.author
 
-import com.fasterxml.jackson.annotation.JsonManagedReference
-import com.holy.back.entity.comics.ComicsEntity
 import java.math.BigDecimal
-import lombok.Getter
-import lombok.Setter
 import javax.persistence.*
 
 @Entity

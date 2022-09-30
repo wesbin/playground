@@ -1,12 +1,12 @@
-package com.holy.back.entity.author
+package com.holy.back.domain.author
 
-import com.holy.back.entity.comics.ComicsData
+import com.holy.back.domain.comics.ComicsDto
 import java.math.BigDecimal
 
-data class AuthorData(
+data class AuthorDto(
     var authorId: BigDecimal?,
     var name: String?,
-    var works: List<ComicsData>,
+    var works: List<ComicsDto>,
 )
 
 //fun AuthorData.fromEntity(authorEntity: AuthorEntity): AuthorData {

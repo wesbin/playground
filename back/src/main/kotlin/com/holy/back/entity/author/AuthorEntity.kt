@@ -9,18 +9,16 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "AUTHOR")
-@Getter
-@Setter
-open class AuthorEntity {
+open class AuthorEntity (
+
+    @Column(name = "NAME", nullable = false)
+    open var name: String? = null,
 
     @Id
     @Column(name = "AUTHOR_ID")
-    open var authorId: BigDecimal? = null
+    open var authorId: BigDecimal? = null,
 
-    @Column(name = "NAME", nullable = false)
-    open var name: String? = null
+//    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+//    open val works: List<ComicsEntity> = arrayListOf()
 
-    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
-    open val works: List<ComicsEntity> = arrayListOf()
-
-}
+)

@@ -9,11 +9,11 @@ data class AuthorData(
     var works: List<ComicsData>,
 )
 
-fun AuthorData.fromEntity(authorEntity: AuthorEntity): AuthorData {
-    return authorEntity.run {
-        AuthorData(
-            authorId,
-            name
-        )
-    }
-}
+//fun AuthorData.fromEntity(authorEntity: AuthorEntity): AuthorData {
+//    return authorEntity.run {
+//        AuthorData(
+//            authorId,
+//            name,
+//        )
+//    }
+//}

@@ -18,7 +18,7 @@ import java.math.BigDecimal
 class ComicsController(private val comicsService: ComicsService) {
 
     @GetMapping("")
-    fun selectComics(): ResponseEntity<List<ComicsData>> {
+    fun selectComics(): ResponseEntity<List<ComicsEntity>> {
         return ResponseEntity(comicsService.selectComics(), HttpStatus.OK)
     }
 

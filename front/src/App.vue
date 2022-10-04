@@ -5,7 +5,12 @@ import Header from '@/components/header/Header';
 <template>
   <Header></Header>
   <div class="content">
-    <router-view></router-view>
+    <!-- todo left, center, right 반응형 설정 -->
+    <div class="left-side-bar"></div>
+    <div class="center">
+      <router-view></router-view>
+    </div>
+    <div class="right-side-bar"></div>
   </div>
 </template>
 
@@ -17,5 +22,19 @@ import Header from '@/components/header/Header';
 .content {
   display: flex;
   justify-content: center;
+
+  .left-side-bar {
+    //flex: 1 1 0;
+  }
+
+  .center {
+    padding-top: 10px;
+    width: 1150px;
+    //flex: 2 1 0;
+  }
+
+  .right-side-bar {
+    //flex: 1 1 0;
+  }
 }
 </style>

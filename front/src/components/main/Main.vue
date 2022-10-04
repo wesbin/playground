@@ -21,13 +21,6 @@ const recentViewComics = reactive({
   }
 })
 
-/*
-*
-* prefix
-* suffix
-*
-* */
-
 const recentViewMusics = reactive({
   name: '음악',
   posts: [],
@@ -39,6 +32,7 @@ const recentViewMusics = reactive({
   })
 })
 
+// todo 이것도 board 안쪽으로 옮기면?
 onBeforeMount(() => {
   // 최근 만화
   axios.get('http://localhost:8081/comics/recent/view')
@@ -52,10 +46,8 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <main class="main">
+  <div class="main">
     <section class="board-section">
-      <!-- todo relatedMenu? -->
-      <!-- todo 여기에서는 본게 몇 화인지 보여야 됨 만화의 경우 근데 또 음악은 그게 없음 => Factory Pattern 따위로 분기처리 해줘야 할듯 -->
       <Board :tabs="[recentViewComics, recentViewMusics]"></Board>
     </section>
     <section class="board-section">
@@ -63,12 +55,11 @@ onBeforeMount(() => {
 <!--      <Board :tabs="recentViewBoard"></Board>-->
 <!--      <Board :tabs="recentViewBoard"></Board>-->
     </section>
-  </main>
+  </div>
 </template>
 
 <style scoped lang="scss">
 .main {
-  width: 1150px;
 
   .board-section {
     display: grid;

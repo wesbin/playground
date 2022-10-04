@@ -1,4 +1,6 @@
 <script setup>
+import {computed} from "vue";
+
 const props = defineProps({
   post: {
     required: true,
@@ -10,10 +12,13 @@ const props = defineProps({
   },
   subTitle: {
     type: Object,
+    default: () => {},
   }
 })
 
-
+const subTitleTxt = computed(() => {
+   return `${props.subTitle?.prefix ?? ''}${props.post?.[props.subTitle?.key] ?? ''}${props.subTitle?.suffix ?? ''}`
+})
 
 const clickThumbnail = () => {
   props.onPostClicked(props.post)
@@ -28,10 +33,10 @@ const clickThumbnail = () => {
     Image
     <div class="post-info-area">
       <div
-        v-if="subTitle.key"
+        v-if="subTitle?.key"
         class="post-sub-title"
       >
-        {{ subTitle.prefix + post[subTitle.key] + subTitle.suffix }}
+        {{ subTitleTxt }}
       </div>
       <div class="post-title">
         {{ post.title }}
@@ -58,15 +63,15 @@ const clickThumbnail = () => {
     background-color: black;
     opacity: 30%;
     user-select: none;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 
     .post-title {
-
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     .post-sub-title {
+      font-family: Pretendard-ExtraLight, Avenir, Helvetica, Arial, sans-serif;
       font-size: 13px;
     }
   }

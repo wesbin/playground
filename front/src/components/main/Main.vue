@@ -14,8 +14,19 @@ const recentViewComics = reactive({
       comicId: post.comicId,
       episode: post.recentViewEpisode
     }
-  })
+  }),
+  subTitle: {
+    key: 'recentViewEpisode',
+    suffix: '화'
+  }
 })
+
+/*
+*
+* prefix
+* suffix
+*
+* */
 
 const recentViewMusics = reactive({
   name: '음악',

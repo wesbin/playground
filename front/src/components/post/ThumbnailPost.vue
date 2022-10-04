@@ -7,8 +7,13 @@ const props = defineProps({
   onPostClicked: {
     required: true,
     type: Function
+  },
+  subTitle: {
+    type: Object,
   }
 })
+
+
 
 const clickThumbnail = () => {
   props.onPostClicked(props.post)
@@ -16,14 +21,21 @@ const clickThumbnail = () => {
 </script>
 
 <template>
-  <!-- todo 작가(혹은 가수)를 표시할 영역도 넣어야 함  -->
   <div
     class="post"
     @click="clickThumbnail"
   >
     Image
-    <div class="post-title">
-      {{ post.title }}
+    <div class="post-info-area">
+      <div
+        v-if="subTitle.key"
+        class="post-sub-title"
+      >
+        {{ subTitle.prefix + post[subTitle.key] + subTitle.suffix }}
+      </div>
+      <div class="post-title">
+        {{ post.title }}
+      </div>
     </div>
   </div>
 </template>
@@ -38,7 +50,7 @@ const clickThumbnail = () => {
   background-color: #c1c1c1;
   cursor: pointer;
 
-  .post-title {
+  .post-info-area {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -49,6 +61,15 @@ const clickThumbnail = () => {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+
+    .post-title {
+
+    }
+
+    .post-sub-title {
+      font-size: 13px;
+    }
   }
+
 }
 </style>

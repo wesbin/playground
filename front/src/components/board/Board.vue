@@ -6,9 +6,10 @@ import {ref} from 'vue';
 const props = defineProps({
   /**
    * tab in tabs
-   * @property {string} name                  -required
-   * @property {Array<post>} posts            -required
+   * @property {string} name    -required
+   * @property {Array<post>} posts    -required
    * @property {Function<post>} onPostClicked -required
+   * @property {{ key: String, prefix: String, suffix: String }} subTitle    -optional
    */
   tabs: {
     required: true,
@@ -43,6 +44,7 @@ const clickTab = (index) => {
         :key="index"
         :post="post"
         :onPostClicked="tabs[selectedTabIndex].onPostClicked"
+        :subTitle="tabs[selectedTabIndex].subTitle"
       ></ThumbnailPost>
     </div>
   </div>

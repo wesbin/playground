@@ -1,5 +1,5 @@
 <script setup>
-import Board from '@/components/board/Board';
+import Board from '@/components/main/summaryBoard/Board';
 import axios from 'axios';
 import {onBeforeMount, reactive} from 'vue';
 import {useRouter} from 'vue-router';

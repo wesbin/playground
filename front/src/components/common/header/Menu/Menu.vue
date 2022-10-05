@@ -1,6 +1,7 @@
 <script setup>
-import MenuItem from '@/components/header/Menu/MenuItem';
+import MenuItem from '@/components/common/header/Menu/MenuItem';
 
+// todo App.vue 로 이동
 const menus = [
   {
     routerName: 'Comics',

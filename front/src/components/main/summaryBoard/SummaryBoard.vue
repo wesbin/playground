@@ -1,6 +1,6 @@
 <script setup>
-import ThumbnailPost from '@/components/post/ThumbnailPost';
-import Tab from '@/components/board/Tab';
+import ThumbnailPost from '@/components/common/post/ThumbnailPost';
+import Tab from '@/components/main/summaryBoard/Tab';
 import {ref} from 'vue';
 
 const props = defineProps({

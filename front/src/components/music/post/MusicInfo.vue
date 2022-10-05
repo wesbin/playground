@@ -20,20 +20,28 @@ onBeforeMount(async () => {
       <div class="music-img">
         Music Thumbnail
       </div>
-      <div class="info-list">
-        {{ musicInfo }}
-      </div>
+      <dl class="info-list">
+        <dt>제목</dt>
+        <dd>{{ musicInfo.title }}</dd>
+        <dt>제목</dt>
+        <dd>Test</dd>
+        <dt>제목</dt>
+        <dd>Test</dd>
+        <dt>제목</dt>
+        <dd>Test</dd>
+        <dt>제목</dt>
+        <dd>Test</dd>
+      </dl>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .music-info {
-  display: flex;
 
   .key-info {
     display: flex;
-    flex: 0 1 50%;
+    width: 100%;
 
     .music-img {
       background: #92a9bd;
@@ -43,7 +51,18 @@ onBeforeMount(async () => {
 
     .info-list {
       flex: 1 1 0;
-      padding: 10px;
+      padding-left: 10px;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      width: 100%;
+
+      dt {
+
+      }
+
+      dd {
+
+      }
     }
   }
 }

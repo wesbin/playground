@@ -1,6 +1,6 @@
 <script setup>
-import Logo from '@/components/header/Logo';
-import Menu from '@/components/header/Menu/Menu';
+import Logo from '@/components/common/header/Logo';
+import Menu from '@/components/common/header/Menu/Menu';
 </script>
 
 <template>

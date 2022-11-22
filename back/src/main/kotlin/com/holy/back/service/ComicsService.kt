@@ -28,6 +28,7 @@ class ComicsService(
     }
 
     fun selectRecentView(): List<ComicsRecentView> {
+//        todo 너무 긴 method name 줄일 수 있는 방법이 있었다.
         return comicsRepo.findAllByRecentViewDateIsNotNullOrderByRecentViewDateDesc()
     }
 

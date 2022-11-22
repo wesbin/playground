@@ -1,5 +1,5 @@
 <script setup>
-import Board from '@/components/main/summaryBoard/Board';
+// import Board from '@/components/main/summaryBoard/Board';
 import axios from 'axios';
 import {onBeforeMount, reactive} from 'vue';
 import {useRouter} from 'vue-router';
@@ -48,7 +48,7 @@ onBeforeMount(() => {
 <template>
   <div class="main">
     <section class="board-section">
-      <Board :tabs="[recentViewComics, recentViewMusics]"></Board>
+<!--      <Board :tabs="[recentViewComics, recentViewMusics]"></Board>-->
     </section>
     <section class="board-section">
       <!-- todo Board 한줄과 두줄 ThumbnailPost 크기 처리 -->

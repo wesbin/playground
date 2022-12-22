@@ -13,15 +13,15 @@
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex flex-shrink-0 items-center">
-            <div class="px-3 py-2 font-bold text-sm">
-              <button class="text-white font-bold">PLAYGROUND</button>
+            <div class="font-extrabold text-2xl">
+              <router-link to="/" class="text-neutral-50">PLAYGROUND</router-link>
             </div>
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <a v-for="item in navigation" :key="item.name" :href="item.href"
+              <router-link v-for="item in navigation" :key="item.name" :to="item.href"
                  :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']"
-                 :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+                 :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
             </div>
           </div>
         </div>
@@ -51,16 +51,16 @@
               <MenuItems
                   class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem v-slot="{ active }">
-                  <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your
-                    Profile</a>
+                  <router-link to="/" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your
+                    Profile</router-link>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <a href="#"
-                     :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
+                  <router-link to="/"
+                     :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</router-link>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign
-                    out</a>
+                  <router-link to="/" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign
+                    out</router-link>
                 </MenuItem>
               </MenuItems>
             </transition>
@@ -83,10 +83,20 @@
 <script setup>
 import {Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems} from '@headlessui/vue';
 import {Bars3Icon, BellIcon, XMarkIcon} from '@heroicons/vue/24/outline';
+import {useRoute} from 'vue-router';
+import {ref, watch} from 'vue';
 
-const navigation = [
-  {name: 'View', href: '#', current: true},
-  {name: 'Chat', href: '#', current: false},
-  {name: 'Memo', href: '#', current: false},
-];
+const navigation = ref([
+  {name: 'View', href: '/view', current: true},
+  {name: 'Chat', href: '/chat', current: false},
+]);
+
+const route = useRoute()
+watch(() => route.name, (value) => {
+  if (value) {
+    for (let element of navigation.value) {
+      element.current = element.name.toLowerCase() === value;
+    }
+  }
+})
 </script>

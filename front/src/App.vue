@@ -1,23 +1,9 @@
-<script setup>
-
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div>
-    <span class="font-bold underline">
-      TEST
-    </span>
-  </div>
+  <AppNavbar></AppNavbar>
+  <router-view></router-view>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script setup>
+import AppNavbar from '@/components/AppNavbar';
+
+</script>

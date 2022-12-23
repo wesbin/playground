@@ -13,7 +13,7 @@ const routes = [
   {
     name: 'chat',
     path: '/chat',
-    component: () => import('@/components/chat/TestChat')
+    component: () => import('@/components/chat/ChatRoom')
   },
   {
     name: 'unknown',

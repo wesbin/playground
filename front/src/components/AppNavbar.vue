@@ -17,6 +17,7 @@
               <router-link to="/" class="text-neutral-50">PLAYGROUND</router-link>
             </div>
           </div>
+          <!-- Main Menu -->
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
               <router-link v-for="item in navigation" :key="item.name" :to="item.href"

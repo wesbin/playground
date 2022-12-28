@@ -22,6 +22,9 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.springframework:spring-websocket:6.0.3")
+	implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

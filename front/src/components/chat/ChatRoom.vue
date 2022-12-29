@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="flex-1 p:2 sm:p-6 flex flex-col h-screen">
-<!--  header area  -->
+      <!--  header area  -->
       <div class="flex sm:items-center justify-between py-3">
         <div class="relative flex items-center space-x-4">
           <div class="relative">
@@ -16,7 +16,7 @@
           </div>
           <div class="flex flex-col leading-tight">
             <div class="text-2xl mt-1 flex items-center">
-              <span class="mr-3">Anderson Vanhron</span>
+              <span class="mr-3">{{username}}</span>
             </div>
             <span class="text-lg">Junior Developer</span>
           </div>
@@ -26,7 +26,7 @@
 
         </div>
       </div>
-<!--  message area  -->
+      <!--  message area  -->
       <div ref="messagesEl" class="h-full flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-w-2 scrolling-touch rounded-t-lg border-2 border-gray-700">
         <div class="chat-message">
           <div class="flex items-end">
@@ -345,10 +345,11 @@
           </div>
         </div>
       </div>
-<!--  input area  -->
+      <!--  input area  -->
       <div class="flex flex-col items-center py-2 px-3 bg-gray-50 rounded-b-lg dark:bg-gray-700">
         <div class="flex w-full">
           <textarea id="chat" rows="1"
+                    v-model="inputMessage"
                     class="block p-2.5 w-full h-12 sm:h-24 text-sm text-gray-900 bg-white rounded-lg border border-gray-300 resize-none scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-w-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Your message..."></textarea>
         </div>
@@ -369,7 +370,9 @@
                     clip-rule="evenodd"></path>
             </svg>
           </button>
+          <!-- submit button -->
           <button type="submit"
+                  @click="send"
                   class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600 ml-auto">
             <svg class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -383,7 +386,12 @@
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue';
+import {computed, onMounted, ref} from 'vue';
+import {useStore} from 'vuex';
+
+const store = useStore()
+
+const username = computed(() => store.getters['user/getUsername'])
 
 const messagesEl = ref(null)
 onMounted(() => {
@@ -391,6 +399,44 @@ onMounted(() => {
 })
 
 const your_user_profile = '###############'
+
+const inputMessage = ref('')
+
+const webSocket = new WebSocket("ws://localhost:8080/ws/chat")
+
+const onClose = (event) => {
+  webSocket.send(`${username}:님이 방을 나가셨습니다.`)
+}
+
+const onOpen = (event) => {
+  webSocket.send(`${username}:님이 입장하셨습니다.`)
+}
+
+const onMessage = (msg) => {
+  const data = msg.data
+  const splitMsg = data.split(":")
+
+  for (let i = 0; i < splitMsg.length; i++) {
+    console.log(`arr[${i}]: ${splitMsg[i]}`);
+  }
+
+  const curSession = username
+  const sessionId = splitMsg[0]
+  const message = splitMsg[1]
+
+  if (sessionId === curSession) {
+    console.log('me', message);
+  } else {
+    console.log('other', message);
+  }
+}
+webSocket.onopen = onOpen
+webSocket.onclose = onClose
+webSocket.onmessage = onMessage
+
+const send = () => {
+  webSocket.send(`${username}:${inputMessage.value}`)
+}
 
 /*
 * todo

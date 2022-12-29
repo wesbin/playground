@@ -13,5 +13,6 @@ class WebSocketConfig(private val chatHandler: ChatHandler): WebSocketConfigurer
         registry
             .addHandler(chatHandler, "ws/chat")
             .setAllowedOrigins("*")
+            .withSockJS()
     }
 }

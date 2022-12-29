@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex-1">
     <div class="flex-1 p:2 sm:p-6 flex flex-col h-screen">
       <!--  header area  -->
       <div class="flex sm:items-center justify-between py-3">
@@ -405,11 +405,11 @@ const inputMessage = ref('')
 const webSocket = new WebSocket("ws://localhost:8080/ws/chat")
 
 const onClose = (event) => {
-  webSocket.send(`${username}:님이 방을 나가셨습니다.`)
+  webSocket.send(`${username.value}:님이 방을 나가셨습니다.`)
 }
 
 const onOpen = (event) => {
-  webSocket.send(`${username}:님이 입장하셨습니다.`)
+  webSocket.send(`${username.value}:님이 입장하셨습니다.`)
 }
 
 const onMessage = (msg) => {
@@ -420,7 +420,7 @@ const onMessage = (msg) => {
     console.log(`arr[${i}]: ${splitMsg[i]}`);
   }
 
-  const curSession = username
+  const curSession = username.value
   const sessionId = splitMsg[0]
   const message = splitMsg[1]
 
@@ -435,7 +435,7 @@ webSocket.onclose = onClose
 webSocket.onmessage = onMessage
 
 const send = () => {
-  webSocket.send(`${username}:${inputMessage.value}`)
+  webSocket.send(`${username.value}:${inputMessage.value}`)
 }
 
 /*

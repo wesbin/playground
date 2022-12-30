@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@forwork_high?TNS_ADMIN=C:/.repo/Wallet_forWORK
+    username: PLAYGROUND
+    password: emptyCASTLE13
+    hikari:
+      schema: PLAYGROUND
+  jpa:
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+    show-sql: true

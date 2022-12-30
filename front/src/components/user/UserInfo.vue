@@ -1,10 +1,10 @@
 <template>
-
+  <h1>USER-INFO</h1>
 </template>
 
 <script>
 export default {
-  name: 'SignIn'
+  name: 'UserInfo'
 };
 </script>
 

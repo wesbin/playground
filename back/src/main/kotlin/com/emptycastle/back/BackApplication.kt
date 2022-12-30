@@ -1,11 +1,11 @@
-package com.emptycastle.chatapi
+package com.emptycastle.back
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ChatApiApplication
+class BackApplication
 
 fun main(args: Array<String>) {
-	runApplication<ChatApiApplication>(*args)
+    runApplication<BackApplication>(*args)
 }

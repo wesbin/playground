@@ -1,4 +1,4 @@
-package com.emptycastle.chatapi.chatHandler
+package com.emptycastle.back.chatHandler
 
 import mu.KotlinLogging
 import org.springframework.stereotype.Component

@@ -1,13 +1,13 @@
-package com.emptycastle.chatapi
+package com.emptycastle.back
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class ChatApiApplicationTests {
+class BackApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+    }
 
 }

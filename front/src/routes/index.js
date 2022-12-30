@@ -1,19 +1,28 @@
 import {createRouter, createWebHistory} from 'vue-router';
+import viewRoutes from '@/routes/view'
+import chatRoutes from '@/routes/chat'
+import userRoutes from '@/routes/user'
+
 
 const routes = [
   {
     path: '/',
-    redirect: 'view'
+    redirect: '/view'
   },
   {
     name: 'view',
     path: '/view',
-    component: () => import('@/components/View/TestView')
+    children: [...viewRoutes]
   },
   {
     name: 'chat',
     path: '/chat',
-    component: () => import('@/components/chat/ChatRoom')
+    children: [...chatRoutes]
+  },
+  {
+    name: 'user',
+    path: '/user',
+    children: [...userRoutes]
   },
   {
     name: 'unknown',

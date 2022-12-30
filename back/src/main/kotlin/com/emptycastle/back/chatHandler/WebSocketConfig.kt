@@ -1,4 +1,4 @@
-package com.emptycastle.chatapi.chatHandler
+package com.emptycastle.back.chatHandler
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.socket.config.annotation.EnableWebSocket
